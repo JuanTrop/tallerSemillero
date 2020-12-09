@@ -20,7 +20,7 @@ public class ContenedorListaPropiedades {
 		try {
 		String linea;
 		while((linea = b.readLine()) != null){
-			String[] propiedad = linea.split(":");
+			String[] propiedad = linea.split(":",2);
 			listaPropiedades.add(new Propiedad(propiedad[0], propiedad[1]));
 		}
 		} catch(IOException e){
