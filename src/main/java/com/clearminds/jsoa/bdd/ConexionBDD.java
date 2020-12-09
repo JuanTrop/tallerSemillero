@@ -11,7 +11,11 @@ public class ConexionBDD {
 		try {
 			propiedades.cargar(new FileReader("/middleware/conexion.properties"));
 			
-			String strprop =  propiedades.leerPropiedad();
+			//Si el argumento es nulo o vacio se leen todas las propiedaes
+			String strprop =  (propiedad == null 
+					|| propiedad == "" ) ?
+					propiedades.leerPropiedad() : 
+					propiedades.leerPropiedad(propiedad);
 			
 			return (strprop == null)? null : strprop;
 			
