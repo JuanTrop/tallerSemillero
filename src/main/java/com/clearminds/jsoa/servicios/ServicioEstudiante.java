@@ -29,4 +29,27 @@ public class ServicioEstudiante extends ServicioBase {
 			e.printStackTrace();
 		}
 	}
+	
+	public void actualizarEstudiante(Estudiante estudiante) throws BDDException{
+		abrirConexion();
+		System.out.println("Actualizando estudiante");
+		System.out.println(estudiante);
+		
+		Statement stmt = null;
+		
+		try {
+			stmt = ConexionBDD.obtenerConexion().createStatement();
+			
+			String sql = "update estudiantes set nombre='" + estudiante.getNombre() + "', apellido='" + 
+			estudiante.getApellido() + "' where id=" + estudiante.getId() ;
+			
+			System.out.println("Script: " + sql);
+			
+			stmt.executeUpdate(sql);
+			cerrarConexion();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
