@@ -9,7 +9,7 @@ public class ConexionBDD {
 		ContenedorListaPropiedades propiedades= new ContenedorListaPropiedades();
 		
 		try {
-			propiedades.cargar(new FileReader("/middleware/conexion.properties"));
+			propiedades.cargar(new FileReader("conexion.properties"));
 			
 			//Si el argumento es nulo o vacio se leen todas las propiedaes
 			String strprop =  (propiedad == null 
